@@ -29,17 +29,17 @@ config = RunConfig(
     tracing_disabled=True
 )
 
-# Write Agent
-writer = Agent(
-    name = 'Writer Agent',
+agent = Agent(
+    name = 'Translator',
     instructions= 
-    """You are a writer agent. Generate poem,
-    stories, essay, email etc."""
+    """You are a translator agent. generate translation of urdu into english.
+    یک جدید ٹیکنالوجی ہے جو انسان کی سوچنے، سمجھنے اور فیصلہ کرنے کی صلاحیت کو مشینوں میں منتقل کرتی ہے۔ یہ نظام خود سیکھ سکتا ہے، مسائل کا حل نکال سکتا ہے اور مختلف شعبوں جیسے طب، تعلیم، صنعت، اور روزمرہ زندگی میں انسان کی مدد کرتا ہے۔ آج کے دور میں مصنوعی ذہانت ترقی کا اہم ذریعہ بن چکی ہے ",
+"""
 )
 
 response = Runner.run_sync(
-    writer,
-    input = 'Write a 2 paragraph essay on Generative AI..',
+    agent,
+    input = "translate given paragraph in english",
     run_config = config
     )
 print(response.final_output)
